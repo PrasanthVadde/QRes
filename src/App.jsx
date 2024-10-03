@@ -1,7 +1,12 @@
+import { BrowserRouter } from "react-router-dom";
+import NavigationStack from "./navigation/navigationStack.jsx";
+
 const App = () => {
   return (
     <>
-      <h1>Hello World</h1>
+      <BrowserRouter>
+      <NavigationStack/>
+      </BrowserRouter>
     </>
   );
 };
