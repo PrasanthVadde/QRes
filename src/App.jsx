@@ -3,11 +3,10 @@ import NavigationStack from "./navigation/navigationStack.jsx";
 
 const App = () => {
   return (
-    <>
-      <BrowserRouter>
-      <NavigationStack/>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <NavigationStack />
+    </BrowserRouter>
   );
 };
+
 export default App;

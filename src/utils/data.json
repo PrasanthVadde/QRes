@@ -1,0 +1,274 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Classic Margherita Pizza",
+      "image": "https://cdn.dummyjson.com/recipe-images/1.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 399,
+      "category": "non-veg"
+    },
+    {
+      "id": 2,
+      "name": "Vegetarian Stir-Fry",
+      "image": "https://cdn.dummyjson.com/recipe-images/2.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 249,
+      "category": "veg"
+    },
+    {
+      "id": 3,
+      "name": "Chocolate Chip Cookies",
+      "image": "https://cdn.dummyjson.com/recipe-images/3.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 199,
+      "category": "non-veg"
+    },
+    {
+      "id": 4,
+      "name": "Chicken Alfredo Pasta",
+      "image": "https://cdn.dummyjson.com/recipe-images/4.webp",
+      "rating": 4.4,
+      "time": 35,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 5,
+      "name": "Mango Salsa Chicken",
+      "image": "https://cdn.dummyjson.com/recipe-images/5.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 349,
+      "category": "non-veg"
+    },
+    {
+      "id": 6,
+      "name": "Quinoa Salad with Avocado",
+      "image": "https://cdn.dummyjson.com/recipe-images/6.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 249,
+      "category": "veg"
+    },
+    {
+      "id": 7,
+      "name": "Tomato Basil Bruschetta",
+      "image": "https://cdn.dummyjson.com/recipe-images/7.webp",
+      "rating": 4.4,
+      "time": 20,
+      "price": 299,
+      "category": "veg"
+    },
+    {
+      "id": 8,
+      "name": "Beef and Broccoli Stir-Fry",
+      "image": "https://cdn.dummyjson.com/recipe-images/8.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 349,
+      "category": "non-veg"
+    },
+    {
+      "id": 9,
+      "name": "Caprese Salad",
+      "image": "https://cdn.dummyjson.com/recipe-images/9.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 299,
+      "category": "veg"
+    },
+    {
+      "id": 10,
+      "name": "Shrimp Scampi Pasta",
+      "image": "https://cdn.dummyjson.com/recipe-images/10.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 11,
+      "name": "Chicken Biryani",
+      "image": "https://cdn.dummyjson.com/recipe-images/11.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 299,
+      "category": "non-veg"
+    },
+    {
+      "id": 12,
+      "name": "Chicken Karahi",
+      "image": "https://cdn.dummyjson.com/recipe-images/12.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 13,
+      "name": "Aloo Keema",
+      "image": "https://cdn.dummyjson.com/recipe-images/13.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 199,
+      "category": "veg"
+    },
+    {
+      "id": 14,
+      "name": "Chapli Kebabs",
+      "image": "https://cdn.dummyjson.com/recipe-images/14.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 15,
+      "name": "Saag (Spinach) with Makki di Roti",
+      "image": "https://cdn.dummyjson.com/recipe-images/15.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 199,
+      "category": "veg"
+    },
+    {
+      "id": 16,
+      "name": "Japanese Ramen Soup",
+      "image": "https://cdn.dummyjson.com/recipe-images/16.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 17,
+      "name": "Moroccan Chickpea Tagine",
+      "image": "https://cdn.dummyjson.com/recipe-images/17.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 249,
+      "category": "non-veg"
+    },
+    {
+      "id": 18,
+      "name": "Korean Bibimbap",
+      "image": "https://cdn.dummyjson.com/recipe-images/18.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 299,
+      "category": "veg"
+    },
+    {
+      "id": 19,
+      "name": "Greek Moussaka",
+      "image": "https://cdn.dummyjson.com/recipe-images/19.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 349,
+      "category": "veg"
+    },
+    {
+      "id": 20,
+      "name": "Butter Chicken (Murgh Makhani)",
+      "image": "https://cdn.dummyjson.com/recipe-images/20.webp",
+      "rating": 4.4,
+      "time": 35,
+      "price": 399,
+      "category": "non-veg"
+    },
+    {
+      "id": 21,
+      "name": "Thai Green Curry",
+      "image": "https://cdn.dummyjson.com/recipe-images/21.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 299,
+      "category": "veg"
+    },
+    {
+      "id": 22,
+      "name": "Mango Lassi",
+      "image": "https://cdn.dummyjson.com/recipe-images/22.webp",
+      "rating": 4.4,
+      "time": 20,
+      "price": 80,
+      "category": "veg"
+    },
+    {
+      "id": 23,
+      "name": "Italian Tiramisu",
+      "image": "https://cdn.dummyjson.com/recipe-images/23.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 199,
+      "category": "veg"
+    },
+    {
+      "id": 24,
+      "name": "Turkish Kebabs",
+      "image": "https://cdn.dummyjson.com/recipe-images/24.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 220,
+      "category": "non-veg"
+    },
+    {
+      "id": 25,
+      "name": "Blueberry Banana Smoothie",
+      "image": "https://cdn.dummyjson.com/recipe-images/25.webp",
+      "rating": 4.4,
+      "time": 20,
+      "price": 120,
+      "category": "veg"
+    },
+    {
+      "id": 26,
+      "name": "Mexican Street Corn (Elote)",
+      "image": "https://cdn.dummyjson.com/recipe-images/26.webp",
+      "rating": 4.4,
+      "time": 20,
+      "price": 149,
+      "category": "veg"
+    },
+    {
+      "id": 27,
+      "name": "Russian Borscht",
+      "image": "https://cdn.dummyjson.com/recipe-images/27.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 149,
+      "category": "veg"
+    },
+    {
+      "id": 28,
+      "name": "South Indian Masala Dosa",
+      "image": "https://cdn.dummyjson.com/recipe-images/28.webp",
+      "rating": 4.4,
+      "time": 20,
+      "price": 120,
+      "category": "veg"
+    },
+    {
+      "id": 29,
+      "name": "Lebanese Falafel Wrap",
+      "image": "https://cdn.dummyjson.com/recipe-images/29.webp",
+      "rating": 4.4,
+      "time": 30,
+      "price": 199,
+      "category": "veg"
+    },
+    {
+      "id": 30,
+      "name": "Brazilian Caipirinha",
+      "image": "https://cdn.dummyjson.com/recipe-images/30.webp",
+      "rating": 4.4,
+      "time": 25,
+      "price": 199,
+      "category": "veg"
+    }
+  ]
+}

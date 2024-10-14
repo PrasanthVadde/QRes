@@ -1,31 +1,13 @@
-import { useNavigate } from "react-router-dom";
+import DefaultCard from "../components/card/card";
+import Navbar from "../components/navbar/navbar";
 
 const HomeScreen = () => {
-     
-    const navigate = useNavigate();
-    const navigateHandler = () => {
-        
-        navigate("/category");
-    }
- const navigateTOCart =()=>{
-    
-    navigate("./cart")
- }
-    return (
-        <>
-            <h1>Welcome to HomeScreen.....</h1>
-
-
-
-
-
-
-
-            <button onClick={navigateHandler}>Click Me</button>
-
-            <button onClick={navigateTOCart}>Cart</button>
-        </>
-    );
+  return (
+    <div className="home-screen">
+      <Navbar />
+      <DefaultCard />
+    </div>
+  );
 };
 
 export default HomeScreen;

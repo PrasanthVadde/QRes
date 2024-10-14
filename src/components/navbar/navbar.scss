@@ -1,0 +1,46 @@
+.header {
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+  
+  .logo {
+    flex: 1;
+  }
+  .logo-image {
+    height: 40px;
+    margin-top: 18px;
+    border-radius: 12px; 
+    margin-left: auto;
+  }
+  .menu {
+    flex: 2;
+    justify-content: flex-end;
+    margin: 0;
+  }
+  
+  .footer {
+    position: fixed;
+    z-index: 99;
+    bottom: 0;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .footer-menu {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+  }
+  
