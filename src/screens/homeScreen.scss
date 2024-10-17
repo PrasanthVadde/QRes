@@ -1,0 +1,63 @@
+.home-page {
+    padding: 20px;
+  
+    .home-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .logo {
+        height: 50px;
+      }
+  
+      .header-links {
+        display: flex;
+        gap: 20px;
+  
+        a {
+          color: #1890ff;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    .filter-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .search-bar {
+        flex-grow: 1;
+        margin-right: 20px;
+      }
+  
+      .filter-checkboxes {
+        display: flex;
+        gap: 15px;
+      }
+    }
+  
+    .items-grid {
+      margin-top: 20px;
+  
+      .ant-card {
+        text-align: center;
+  
+        img {
+          height: 200px;
+          object-fit: cover;
+        }
+  
+        .ant-card-actions {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  

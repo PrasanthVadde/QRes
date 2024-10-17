@@ -1,0 +1,39 @@
+.profile-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  
+    .profile-left {
+      flex: 1;
+      max-width: 250px;
+  
+      .ant-card {
+        margin-bottom: 20px;
+      }
+  
+      .ant-list-item {
+        cursor: pointer;
+        padding: 10px;
+        font-size: 16px;
+        transition: background-color 0.2s;
+  
+        &.active {
+          background-color: #1890ff;
+          color: white;
+        }
+  
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  
+    .profile-right {
+      flex: 2;
+  
+      .content-card {
+        padding: 20px;
+      }
+    }
+  }
+  
