@@ -1,5 +1,5 @@
 import { Button, Card } from "antd";
-import "./CartScreen.scss";
+import "./cartScreen.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementItem, decrementItem } from "../redux/cartSlice.js";
 import { useNavigate } from "react-router-dom";
