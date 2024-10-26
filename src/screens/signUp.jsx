@@ -1,9 +1,9 @@
 import { Input, Button, notification } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../redux/userSlice.js';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; 
 import './signUp.scss';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../components/firebase/firebase.js'; 
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -14,70 +14,79 @@ const SignUp = () => {
     confirmPassword: '',
   });
 
-  const users = useSelector((state) => state.user.users);
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate(); 
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSignUp = () => {
-    const { username, mobile, email, password, confirmPassword } = form;
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const { email, password, confirmPassword } = form;
 
+    // Form validation
     if (password !== confirmPassword) {
       notification.error({ message: "Passwords do not match!" });
       return;
     }
 
-    const newUser = { username, mobile, email, password };
-
-    const existingUser = users.find((user) => user.username === username);
-    if (existingUser) {
-      notification.error({ message: "Username already exists!" });
+    if (!email || !password) {
+      notification.error({ message: "Please fill out all required fields!" });
       return;
     }
 
-    dispatch(registerUser(newUser));
-    notification.success({ message: "User registered successfully!" });
+    try {
+      // Firebase user registration
+      await createUserWithEmailAndPassword(auth, email, password);
+
+      notification.success({ message: "User registered successfully!" });
+      
+      // Redirect to Profile or another page after successful registration
+      navigate("/profile");
+    } catch (error) {
+      notification.error({ message: error.message });
+    }
   };
 
   return (
-    <div className="signUp-container">
-      <h1>SignUp</h1>
-      <Input
-        placeholder="Username"
-        name="username"
-        value={form.username}
-        onChange={handleChange}
-      />
-      <Input
-        placeholder="Mobile Number"
-        name="mobile"
-        value={form.mobile}
-        onChange={handleChange}
-      />
-      <Input
-        placeholder="Email"
-        name="email"
-        value={form.email}
-        onChange={handleChange}
-      />
-      <Input.Password
-        placeholder="Password"
-        name="password"
-        value={form.password}
-        onChange={handleChange}
-      />
-      <Input.Password
-        placeholder="Confirm Password"
-        name="confirmPassword"
-        value={form.confirmPassword}
-        onChange={handleChange}
-      />
-      <Button type="primary" onClick={handleSignUp}>SignUp</Button>
-      <p>Alredy a user?<Link to={"/signIn"}>Sign In</Link></p>
-    </div>
+    <form onSubmit={handleRegister}>
+      <div className="signUp-container">
+        <h1>Sign Up</h1>
+        <Input
+          placeholder="Username"
+          name="username"
+          value={form.username}
+          onChange={handleChange}
+        />
+        <Input
+          placeholder="Mobile Number"
+          name="mobile"
+          value={form.mobile}
+          onChange={handleChange}
+        />
+        <Input
+          placeholder="Email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+        />
+        <Input.Password
+          placeholder="Password"
+          name="password"
+          value={form.password}
+          onChange={handleChange}
+        />
+        <Input.Password
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          value={form.confirmPassword}
+          onChange={handleChange}
+        />
+        <Button type="primary" htmlType="submit">Sign Up</Button>
+        <p>Already a user? <Link to="/signIn">Sign In</Link></p>
+      </div>
+    </form>
   );
 };
 

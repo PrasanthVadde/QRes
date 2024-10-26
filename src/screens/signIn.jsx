@@ -1,45 +1,48 @@
-import { useState } from 'react';
-import { Input, Button, notification } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../redux/userSlice';
-import { Link } from 'react-router-dom';
-import './signIn.scss';
-
+import { useState } from "react";
+import { Input, Button, notification } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import "./signIn.scss";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../components/firebase/firebase.js";
 const SignIn = () => {
   const [form, setForm] = useState({
-    usernameOrMobile: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
-  const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
-  const handleSignIn = () => {
-    const { usernameOrMobile, password } = form;
+  const handleSignIn = async () => {
+    const { email, password } = form;
 
-    // Dispatch the action to login the user
-    dispatch(loginUser({ usernameOrMobile, password }));
+    if (!email || !password) {
+      notification.error({ message: "Please enter both email and password!" });
+      return;
+    }
 
-    if (currentUser) {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+
       notification.success({ message: "Login successful!" });
-      // Redirect to dashboard or profile page
-    } else {
-      notification.error({ message: "Invalid username or password!" });
+
+      navigate("/profile");
+    } catch (error) {
+      notification.error({ message: error.message });
     }
   };
 
   return (
     <div className="signIn-container">
-      <h1>SignIn</h1>
+      <h1>Sign In</h1>
       <Input
-        placeholder="Username / Mobile Number"
-        name="usernameOrMobile"
-        value={form.usernameOrMobile}
+        placeholder="Email"
+        name="email"
+        value={form.email}
         onChange={handleChange}
       />
       <Input.Password
@@ -48,8 +51,12 @@ const SignIn = () => {
         value={form.password}
         onChange={handleChange}
       />
-      <Button type="primary" onClick={handleSignIn}>SignIn</Button>
-      <p>Not a user? <Link to={"/signUp"}>SignUp</Link></p>
+      <Button type="primary" onClick={handleSignIn}>
+        Sign In
+      </Button>
+      <p>
+        Not a user? <Link to="/signUp">Sign Up</Link>
+      </p>
     </div>
   );
 };

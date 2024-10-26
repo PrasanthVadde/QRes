@@ -11,7 +11,7 @@ const Navbar = () => {
   const [searchValue,setSearchValue]=useState("")
   const handleSearch = (value) => {
     setSearchValue(value);
-    console.log(value); // Log the actual value entered
+  
   };
 
   const isMobile = useMediaQuery({ query: "(max-width: 520px)" });

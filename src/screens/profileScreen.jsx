@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Card, List } from "antd";
 import "./profileScreen.scss";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom"; // For redirecting to SignIn
+import { useNavigate } from "react-router-dom"; 
+import { auth } from "../components/firebase/firebase"; 
 
 const ProfilePage = () => {
   const [selectedTab, setSelectedTab] = useState("Orders");
-  const user = useSelector((state) => state.user.currentUser);
-  const navigate = useNavigate(); // For navigation to SignIn page
+  const [user, setUser] = useState(null); 
+  const navigate = useNavigate(); 
+  
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        
+        setUser(currentUser);
+      } else {
+        
+        setUser(null);
+        navigate("/signIn");
+      }
+    });
+
+    
+    return () => unsubscribe();
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut(); 
+      navigate("/signIn"); 
+    } catch (error) {
+      console.error("Error logging out: ", error);
+    }
+  };
 
   const tabOptions = ["Orders", "Favorites", "Addresses", "Settings"];
 
@@ -40,10 +65,12 @@ const ProfilePage = () => {
     <div className="profile-container">
       <div className="profile-left">
         <Card title="Profile">
-          <p>Username: {user.username}</p>
-          <p>Mobile: {user.mobile}</p>
+          <p>Username: {user.displayName || "N/A"}</p>
           <p>Email: {user.email}</p>
           <Button type="primary">Edit Profile</Button>
+          <Button type="default" danger onClick={handleLogout} style={{ marginTop: "10px" }}>
+            Logout
+          </Button>
         </Card>
         <List
           dataSource={tabOptions}
@@ -67,18 +94,17 @@ const ProfilePage = () => {
   );
 };
 
-// Component to show the orders content
 const OrdersContent = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const user = auth.currentUser;
 
-  if (!currentUser || !currentUser.orders) {
-    return <p>No orders found</p>; // Return a fallback message if the user is not logged in or has no orders
+  if (!user || !user.orders) {
+    return <p>No orders found</p>; 
   }
 
   return (
     <div>
-      {currentUser.orders.length > 0 ? (
-        currentUser.orders.map((order, index) => (
+      {user.orders.length > 0 ? (
+        user.orders.map((order, index) => (
           <p key={index}>Order #{index + 1}: {order}</p>
         ))
       ) : (
@@ -88,18 +114,17 @@ const OrdersContent = () => {
   );
 };
 
-// Component to show the favorites content
 const FavoritesContent = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const user = auth.currentUser;
 
-  if (!currentUser || !currentUser.favorites) {
-    return <p>No favorites found</p>; // Return a fallback message if the user is not logged in or has no favorites
+  if (!user || !user.favorites) {
+    return <p>No favorites found</p>; 
   }
 
   return (
     <div>
-      {currentUser.favorites.length > 0 ? (
-        currentUser.favorites.map((fav, index) => (
+      {user.favorites.length > 0 ? (
+        user.favorites.map((fav, index) => (
           <p key={index}>Favorite #{index + 1}: {fav}</p>
         ))
       ) : (
@@ -109,12 +134,12 @@ const FavoritesContent = () => {
   );
 };
 
-// Component to show the addresses content
+
 const AddressesContent = () => {
   return <p>Your saved addresses will appear here.</p>;
 };
 
-// Component to show the settings content
+
 const SettingsContent = () => {
   return <p>Manage your account settings here.</p>;
 };
