@@ -15,7 +15,7 @@ const SignUp = () => {
   });
 
   const navigate = useNavigate(); 
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -47,6 +47,14 @@ const SignUp = () => {
     } catch (error) {
       notification.error({ message: error.message });
     }
+  };
+
+  // Function to handle guest login (no credentials required)
+  const handleGuestLogin = () => {
+    // Assuming you want to set a user in a guest state, or directly navigate to the profile page
+    // You can also customize this behavior further as needed.
+    notification.success({ message: "Logged in as a guest!" });
+    navigate("/");  // Redirecting to profile page directly
   };
 
   return (
@@ -84,6 +92,10 @@ const SignUp = () => {
           onChange={handleChange}
         />
         <Button type="primary" htmlType="submit">Sign Up</Button>
+        
+        
+        <Button style={{color:'black'}} type="default" onClick={handleGuestLogin}>Guest Login</Button>
+        
         <p>Already a user? <Link to="/signIn">Sign In</Link></p>
       </div>
     </form>

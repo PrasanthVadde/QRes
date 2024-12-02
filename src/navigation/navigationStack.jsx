@@ -1,5 +1,5 @@
 import { Route,  Routes } from "react-router-dom"
-import HomeScreen from "../screens/homeScree.jsx"
+import HomeScreen from "../screens/homeScreen.jsx"
 import CategoryScreen from "../screens/categoryScreen.jsx"
 import CartScreen from "../screens/cartScreen.jsx"
 import ProfileScreen from "../screens/profileScreen.jsx"
